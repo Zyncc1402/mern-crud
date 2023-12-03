@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --small-width: 94%;
+  --medium-width: 90%;
+  --big-width: 76%;
+
+  /*========== Font and typography ==========*/
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  transition: .2s;
+}
+
+body,
+button,
+input,
+textarea {
+  font-size: var(--normal-font-size);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 5.5rem 0 1rem;
+}
+
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    max-width: var(--small-width);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: var(--medium-width);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    max-width: var(--big-width);
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.main {
+  overflow: hidden;  /*For animation*/
+}
+
+/*=============== USERS ===============*/
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.operations {
+  display: flex;
+  gap: 20px;
+}
+
+.operationBtn {
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.blue {
+  background-color: rgb(101, 101, 255);
+}
+
+.red {
+  background-color: rgb(255, 107, 107);
+}
+
+/*=============== CREATE USER ===============*/
+.createWrapper {
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 100px;
+  text-align: left;
+  border-radius: 1rem;
+  margin-top: 20px;
+  gap: 20px;
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.addBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+/*=============== UPDATE USER ===============*/
+
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .5rem;
+}
+
+/*=============== RESPONSIVE BREAKPOINTS ===============*/
+
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {}
+
+@media screen and (min-width: 767px) {}
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 8rem 0 1rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {}
