@@ -72,6 +72,16 @@ h3 {
   font-weight: var(--font-semi-bold);
 }
 
+::-moz-selection {
+  color: white;
+  background: #009879;
+}
+
+::selection {
+  color: white;
+  background: #009879;
+}
+
 ul {
   list-style: none;
 }
@@ -140,7 +150,6 @@ img {
     margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -152,11 +161,12 @@ img {
 
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+    padding: 12px 20px;
 }
 
 .styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
+    
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -172,11 +182,6 @@ img {
     color: #009879;
 }
 
-.operations {
-  display: flex;
-  gap: 20px;
-}
-
 .operationBtn {
   padding: 10px;
   text-align: center;
@@ -185,6 +190,7 @@ img {
   cursor: pointer;
   border-radius: 1rem;
   font-weight: 600;
+  margin: 5px;
 }
 
 .blue {
@@ -201,27 +207,27 @@ img {
 }
 
 .card {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 100px;
   text-align: left;
   border-radius: 1rem;
   margin-top: 20px;
-  gap: 20px;
   position: relative;
+}
+
+form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .input {
   padding: 10px;
   border: none;
   border-bottom: 1px solid #000000;
-}
-
-textarea {
-  resize: none;
 }
 
 textarea:focus, input:focus{
@@ -242,6 +248,10 @@ input[type=number] {
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+.addUserBtn {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 /*=============== UPDATE USER ===============*/

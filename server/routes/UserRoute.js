@@ -10,22 +10,34 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const name = req.body.name;
-    const age = req.body.age;
+    const username = req.body.username;
     const email = req.body.email;
+    const password = req.body.password;
     const phone = req.body.phone;
-    const address = req.body.address;
+    const website = req.body.website;
+    const street = req.body.street;
+    const suite = req.body.suite;
+    const city = req.body.city;
+    const zipcode = req.body.zipcode;
 
     const newUser = new users({
       name,
-      age,
+      username,
       email,
+      password,
       phone,
-      address,
+      website,
+      address: {
+        street,
+        suite,
+        city,
+        zipcode,
+      },
     });
 
     newUser
       .save()
-      .then(() => res.json("User added"))
+      .then((user) => res.json("User added" +user))
       .catch((err) => res.status(400).json("Error: " + err));
   });
 
@@ -36,20 +48,24 @@ router.route('/:id').get((req, res) => {
       .catch((err) => res.status(400).json("Error: " + err));
   });
 
-router.route('/update/:id').post((req, res) => {
+router.route('/update/:id').put((req, res) => {
     users
-      .findById(req.params.id)
-      .then((user) => {
-        user.name = req.body.name;
-        user.age = Number(req.body.age);
-        user.email = req.body.email;
-        user.phone = Number(req.body.phone);
-        user.address = req.body.address;
-
-        user
-          .save()
-          .then(() => res.status(200).json("User updated"))
-          .catch((err) => res.status(400).json("Error: " + err));
+      .findByIdAndUpdate(req.params.id, {
+        name: req.body.name,
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        phone: req.body.phone,
+        website: req.body.website,
+        address: {
+          street: req.body.street,
+          suite: req.body.suite,
+          city: req.body.city,
+          zipcode: req.body.zipcode,
+        },
+      })
+      .then((users) => {
+        res.json(users);
       })
       .catch((err) => res.status(400).json("Error: " + err));
   });
